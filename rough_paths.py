@@ -2,13 +2,13 @@ import matplotlib.pyplot as plt
 
 t = [[1,0], [0.707,0.707], [0,1], [-0.707,0.707], [-1,0], [-0.707,-0.707], [0,-1], [0.707,-0.707], [1,0]]
 
-def second_integral(m, k, l):
-	return (t[m+1][l-1] - t[m][l-1]) * (t[m][k-1] - t[0][k-1] + 0.5*(t[m+1][k-1] - t[m][k-1]))
+def second_integral(m, k, l, ti):
+	return (t[m+1][l-1] - t[m][l-1]) * (t[m][k-1] - t[ti][k-1] + 0.5*(t[m+1][k-1] - t[m][k-1]))
 
 def first_integral(k, l, tj, ti):
 	integral = 0
 	for m in range(ti, tj):
-		integral += second_integral(m, k, l)
+		integral += second_integral(m, k, l, ti)
 	return integral
 
 def plot_points():
